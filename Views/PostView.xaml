@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM_API_SampleProject.Views.PostView"
+             Title="PostView">
+    <ScrollView>
+        <VerticalStackLayout>
+          
+            <HorizontalStackLayout>
+                <Button Text="Carregar Posts" Command="{Binding GetPostsCommand}"/>
+            </HorizontalStackLayout>
+            <CollectionView x:Name="PostColletion" ItemsSource="{Binding Posts}" EmptyView="Nenhum post encontrado">
+            <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Frame>
+                                <VerticalStackLayout Margin="50" HorizontalOptions="Center" MaximumWidthRequest="180">
+                                    <Label  
+                                    Text="{Binding UserId}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                    <Label  
+                                    Text="{Binding Id}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                    <Label  
+                                    Text="{Binding Title}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+
+                                    <Label  
+                                    Text="{Binding Body}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                                </VerticalStackLayout>
+                            </Frame>
+                        </VerticalStackLayout>
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+
+    </ScrollView>
+
+</ContentPage>
